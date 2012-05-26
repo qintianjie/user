@@ -1,0 +1,124 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.colorcc.rest</groupId>
+	<artifactId>user-rest</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<description>
+        User Register module parent.
+   	</description>
+	<url>http://github.com/jackqin/user-register</url>
+	<organization>
+		<name>Colorcc Corporation</name>
+		<url>http://github.com/qintianjie/</url>
+	</organization>
+	<issueManagement>
+		<system>JIRA</system>
+		<url>http://github.com/qintianjie/jira</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Hudson</system>
+		<url>http://hudson.colorcc.com/job/user-rest/</url>
+	</ciManagement>
+	<scm>
+		<connection>scm:svn:https://svn.colorcc.com/svn/colorcc/trunk/user-register/</connection>
+		<developerConnection>scm:svn:https://svn.colorcc.com/svn/colorcc/trunk/user-register/</developerConnection>
+		<tag>HEAD</tag>
+		<url>http://github.com/jackqin/user-register</url>
+	</scm>
+	<mailingLists>
+		<mailingList>
+			<name>User Register Users List</name>
+			<archive>http://github.com/qintianjie/lists/users/archive</archive>
+			<post>tianjieqin@126.com</post>
+		</mailingList>
+		<mailingList>
+			<name>User Register Dev List</name>
+			<archive>http://github.com/qintianjie/lists/users/archive</archive>
+			<post>tianjieqin@126.com</post>
+		</mailingList>
+	</mailingLists>
+	<licenses>
+		<license>
+			<name>CDDL 1.1</name>
+			<url>http://glassfish.java.net/public/CDDL+GPL_1_1.html</url>
+			<distribution>repo</distribution>
+		</license>
+		<license>
+			<name>GPL2 w/ CPE</name>
+			<url>http://glassfish.java.net/public/CDDL+GPL_1_1.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<modules>
+		<module>../user-rest-dao</module>
+		<module>../user-rest-service</module>
+		<module>../user-rest-api</module>
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.colorcc</groupId>
+			<artifactId>logger-slf4j-deps</artifactId>
+			<version>1.0.0</version>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${maven.compiler.plugin.source}</source>
+					<target>${maven.compiler.plugin.target}</target>
+					<encoding>${maven.jvm.encoding}</encoding>
+					<meminitial>${jvm.minMem}</meminitial>
+					<maxmem>${jvm.maxMem}</maxmem>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/*Test.java</include>
+					</includes>
+					<excludes>
+						<exclude>**/Abstract*.java</exclude>
+					</excludes>
+					<junitArtifactName>junit:junit</junitArtifactName>
+					<argLine>${maven.surefire.argLine}</argLine>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<properties>
+		<maven.compiler.plugin.version>2.4</maven.compiler.plugin.version>
+		<maven.compiler.plugin.source>1.6</maven.compiler.plugin.source>
+		<maven.compiler.plugin.target>1.6</maven.compiler.plugin.target>
+
+		<maven.jvm.encoding>UTF-8</maven.jvm.encoding>
+
+		<!-- JVM memory size -->
+		<jvm.minMem>128m</jvm.minMem>
+		<jvm.maxMem>-Xmx768m</jvm.maxMem>
+		
+		<maven.surefire.argLine>-Xmx768m</maven.surefire.argLine>
+		<org.springframework.version>3.1.1.RELEASE</org.springframework.version>
+		<com.fasterxml.jackson.version>2.0.2</com.fasterxml.jackson.version>
+		
+		<mysql.connector.java>5.1.20</mysql.connector.java>
+	</properties>
+
+</project>
