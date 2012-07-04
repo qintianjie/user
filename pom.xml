@@ -115,10 +115,32 @@
 		<jvm.maxMem>-Xmx768m</jvm.maxMem>
 		
 		<maven.surefire.argLine>-Xmx768m</maven.surefire.argLine>
-		<org.springframework.version>3.1.1.RELEASE</org.springframework.version>
+		<org.springframework.version>3.2.0.M1</org.springframework.version>
 		<com.fasterxml.jackson.version>2.0.2</com.fasterxml.jackson.version>
 		
 		<mysql.connector.java>5.1.20</mysql.connector.java>
 	</properties>
+	
+	<repositories>
+		<repository>
+			<id>spring-milestone</id>
+			<name>Spring Maven MILESTONE Repository</name>
+			<url>http://maven.springframework.org/milestone</url>
+		</repository>
+		<repository>
+			<id>com.springsource.repository.maven.snapshot</id>
+			<url>http://repo.springsource.org/snapshot/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>com.springsource.repository.maven.release</id>
+			<url>http://repo.springsource.org/release/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 </project>
